@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import AboutPage from './pages/AboutPage';
 import Home from './pages/Home';
+import AboutIconLink from './components/AboutIconLink';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/about' exact element={<AboutPage />} />
         </Routes>
+        <AboutIconLink />
       </div>
     </BrowserRouter>
   );

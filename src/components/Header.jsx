@@ -1,15 +1,12 @@
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 
 function Header({bgColor, textColor, text}) {
-  const headerStyle = {
-    backgroundColor: 'black', color: 'red'
-  }  
-  
+ 
   return (
     <header style={{backgroundColor: bgColor, color: textColor}}>
-      <div className="container">
-        <h2>{text}</h2>
-        
+      <div className="container"> 
+        <h2>{text}</h2>      
       </div>
     </header>
   )
