@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types'
+import {useContext} from 'react'
+import FeedbackContext from '../context/FeedbackContext'
 
-function FeedbackStats({feedbacks}) {  
+function FeedbackStats() { 
+  const {feedbacks} = useContext(FeedbackContext)
+
   // Calculate sum
   const average = (feedbacks.reduce((accum, curr)=> accum + curr.rating, 0) / feedbacks.length).toFixed(1).replace(/[.,]0$/, '')
     

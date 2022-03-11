@@ -23,8 +23,8 @@ function Home() {
   return (
     <>
       <FeedbackForm handleAdd={addFeedback} />
-      <FeedbackStats feedbacks={feedbacks} />
-      <FeedbackList feedbacks={feedbacks} handleDel={deleteFeedack} />
+      <FeedbackStats />
+      <FeedbackList handleDel={deleteFeedack} />
     </>
   )
 }
