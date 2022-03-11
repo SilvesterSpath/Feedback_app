@@ -4,8 +4,8 @@ import {useContext} from 'react'
 import FeedbackContext from "../context/FeedbackContext"
 import { v4 as uuidv4 } from 'uuid';
 
-function FeedbackList({ handleDel}) {
-  const {feedbacks} = useContext(FeedbackContext)
+function FeedbackList() {
+  const {feedbacks, deleteFeedback} = useContext(FeedbackContext)
   
 
   if(!feedbacks || feedbacks.length === 0){
@@ -24,7 +24,7 @@ function FeedbackList({ handleDel}) {
     <AnimatePresence>
       {feedbacks.map((item, idx)=>(
         <motion.div key={uuidv4()} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity:0}}>
-          <FeedbackItem key={idx} item={item} handleDel={handleDel}/>
+          <FeedbackItem key={idx} item={item} handleDel={deleteFeedback}/>
         </motion.div>        
       ))}
     </AnimatePresence>

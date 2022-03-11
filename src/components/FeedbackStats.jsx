@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import {useContext} from 'react'
 import FeedbackContext from '../context/FeedbackContext'
 
@@ -16,8 +15,5 @@ function FeedbackStats() {
   )
 }
 
-FeedbackStats.propTypes = {
-  feedbacks: PropTypes.array.isRequired
-}
 
 export default FeedbackStats
