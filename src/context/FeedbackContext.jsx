@@ -8,7 +8,23 @@ export const FeedbackProvider = ({children}) => {
     id: 1,
     text: 'This item is from context',
     rating: 7
-  }])
+  },
+  {
+    id: 2,
+    rating: 9,
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae.',
+  },
+  {
+    id: 3,
+    rating: 5,
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae.',
+  },
+])
+
+  const [feedbackEditState, setFeedbackEditState] = useState({
+    item: {},
+    edit: false
+  })
 
   const deleteFeedback = (id) => {
     if (window.confirm('Are you sure you want to delete')) {
@@ -16,6 +32,15 @@ export const FeedbackProvider = ({children}) => {
     }
   };
 
+  // Set item to be updated
+  const editFeedback = (item)=>{
+    setFeedbackEditState({
+      item,
+      edit: true
+    })
+  }
+
+  // Delete feedback
   const addFeedback = (newFeedback) => {
     newFeedback.id = parseInt(uuidv4());
     feedbacks.push(newFeedback);
@@ -26,7 +51,9 @@ export const FeedbackProvider = ({children}) => {
   return <FeedbackContext.Provider value={{
     feedbacks,
     deleteFeedback,
-    addFeedback
+    addFeedback,
+    editFeedback,
+    feedbackEditState
   }}>
     {children}
   </FeedbackContext.Provider>
