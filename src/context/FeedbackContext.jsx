@@ -1,5 +1,6 @@
-import {createContext, useState} from 'react'
+import {createContext, useState, useEffect} from 'react'
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios'
 
 const FeedbackContext = createContext()
 
@@ -25,6 +26,17 @@ export const FeedbackProvider = ({children}) => {
     item: {},
     edit: false
   })
+
+  useEffect(()=>{
+    getFeedbacks()
+  }, [])
+
+  // Get feedbacks
+  const getFeedbacks = async ()=>{
+    const feedbacks = await axios.get('http://localhost:5000/feedback')
+    console.log(feedbacks.data)
+    setFeedbacks(feedbacks.data)
+  }
 
   // Delete feedback
   const deleteFeedback = (id) => {
