@@ -12,12 +12,12 @@ export const FeedbackProvider = ({children}) => {
   {
     id: 2,
     rating: 9,
-    text: 'Feedback item 2',
+    text: 'Feedback item 2 is from context',
   },
   {
     id: 3,
     rating: 5,
-    text: 'Feedback item 3',
+    text: 'Feedback item 3 is from context',
   },
 ])
 
@@ -44,7 +44,7 @@ export const FeedbackProvider = ({children}) => {
   // Add a feedback
   const addFeedback = (newFeedback) => {
     newFeedback.id = parseInt(uuidv4());
-    feedbacks.push(newFeedback);
+    
     setFeedbacks([newFeedback, ...feedbacks]);
     console.log(feedbacks);
   };
